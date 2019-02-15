@@ -40,7 +40,7 @@ public class Endereco implements Serializable {
 	@JoinColumn(name="cliente_id")
 	private Cliente cliente;
 
-	public Integer getId() {
+	public Integer getId() { 
 		return id;
 	}
 
