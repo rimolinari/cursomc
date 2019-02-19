@@ -21,6 +21,15 @@ import com.rmolinari.cursomc.domain.Enuns.TipoCliente;
 public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)	
+	private Integer id;
+	private String nome;
+	private String email;
+	private String cpfOuCnpj;
+	private Integer tipo;
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -47,13 +56,7 @@ public class Cliente implements Serializable {
 	}
 
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)	
-	private Integer id;
-	private String nome;
-	private String email;
-	private String cpfOuCnpj;
-	private Integer tipo;
+
 	
 	@JsonIgnore
 	@OneToMany(mappedBy="cliente") 
@@ -146,7 +149,7 @@ public class Cliente implements Serializable {
 		this.nome = nome;
 		this.email = email;
 		this.cpfOuCnpj = cpfOuCnpj;
-		this.tipo = tipo.getCod();
+		this.tipo =(tipo==null) ? null: tipo.getCod();
 	}
 
 	

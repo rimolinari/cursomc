@@ -19,6 +19,10 @@ public class Endereco implements Serializable {
 	private Integer id;
 	private String logradouro ;
 	private String numero ;
+	private String complemento ;
+	private String bairro ;
+	private String cep ;
+	
 	public Cidade getCidade() {
 		return cidade;
 	}
@@ -27,10 +31,6 @@ public class Endereco implements Serializable {
 		this.cidade = cidade;
 	}
 
-	private String complemento ;
-	private String bairro ;
-	private String cep ;
-	
 	@ManyToOne
 	@JoinColumn(name="cidade_id")
 	private Cidade cidade ;

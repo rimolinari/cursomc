@@ -6,11 +6,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import com.rmolinari.cursomc.domain.Categoria;
 
 public class CategoriaDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	
+	private Integer id;
+	
+	@NotEmpty(message="obrigatório")
+	@Length(min=5, max=50, message="entre 5 e 50 carac")
+	private String nome;
 	
 	public CategoriaDTO() {}
 	
@@ -36,7 +45,6 @@ public class CategoriaDTO implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	private Integer id;
-	private String nome;
+
 
 }
