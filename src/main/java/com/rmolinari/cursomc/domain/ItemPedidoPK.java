@@ -58,5 +58,6 @@ public class ItemPedidoPK implements Serializable {
 	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
+
 	
 }

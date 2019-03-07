@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 import com.rmolinari.cursomc.domain.Categoria;
 import com.rmolinari.cursomc.dto.CategoriaDTO;
 import com.rmolinari.cursomc.repositories.CategoriaRepository;
-import com.rmolinari.cursomc.services.Excepetions.DataIntegrityException;
-import com.rmolinari.cursomc.services.Excepetions.ObjectNotFoundException;
+import com.rmolinari.cursomc.services.excepetions.DataIntegrityException;
+import com.rmolinari.cursomc.services.excepetions.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {

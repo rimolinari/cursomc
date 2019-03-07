@@ -1,4 +1,4 @@
-package com.rmolinari.cursomc.resources.excepetion;
+package com.rmolinari.cursomc.resources.excepetions;
 
 import java.util.ArrayList;
 

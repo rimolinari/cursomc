@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -70,13 +71,9 @@ public class Cliente implements Serializable {
 		this.pedidos = pedidos;
 	}
 
-	public void setTipo(Integer tipo) {
-		this.tipo = tipo;
-	}
-
 
 	
-	@OneToMany(mappedBy="cliente") 
+	@OneToMany(mappedBy="cliente", cascade=CascadeType.ALL) 
 	private List<Endereco> endereco = new ArrayList<Endereco>();
 	
 	//set nao permite repeticao
@@ -126,6 +123,7 @@ public class Cliente implements Serializable {
 	public void setTipo(TipoCliente tipo) {
 		this.tipo = tipo.getCod();
 	}
+	
 
 	public List<Endereco> getEndereco() {
 		return endereco;

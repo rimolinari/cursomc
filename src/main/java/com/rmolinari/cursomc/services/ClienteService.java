@@ -18,8 +18,8 @@ import com.rmolinari.cursomc.dto.ClienteDTO;
 import com.rmolinari.cursomc.dto.ClienteNewDTO;
 import com.rmolinari.cursomc.repositories.ClienteRepository;
 import com.rmolinari.cursomc.repositories.EnderecoRepository;
-import com.rmolinari.cursomc.services.Excepetions.DataIntegrityException;
-import com.rmolinari.cursomc.services.Excepetions.ObjectNotFoundException;
+import com.rmolinari.cursomc.services.excepetions.DataIntegrityException;
+import com.rmolinari.cursomc.services.excepetions.ObjectNotFoundException;
 
 @Service
 public class ClienteService {

@@ -1,16 +1,20 @@
-package com.rmolinari.cursomc.resources.excepetion;
+package com.rmolinari.cursomc.resources.excepetions;
+
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequestWrapper;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.method.annotation.MethodArgumentConversionNotSupportedException;
 
-import com.rmolinari.cursomc.services.Excepetions.DataIntegrityException;
-import com.rmolinari.cursomc.services.Excepetions.ObjectNotFoundException;
+import com.rmolinari.cursomc.services.excepetions.DataIntegrityException;
+import com.rmolinari.cursomc.services.excepetions.ObjectNotFoundException;
 
 @ControllerAdvice
 public class ResourceExcepetionHandler {
@@ -22,13 +26,15 @@ public class ResourceExcepetionHandler {
 	}
 	
 	@ExceptionHandler(DataIntegrityException.class)
-	public ResponseEntity<StandardError> integrityException(DataIntegrityException e, HttpServletRequestWrapper request){
+	public ResponseEntity<StandardError> integrityException(DataIntegrityViolationException e, HttpServletRequestWrapper request){
 		StandardError err = new StandardError(HttpStatus.BAD_REQUEST.value(), e.getMessage(), System.currentTimeMillis());
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
 	}
 	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<StandardError> validation(MethodArgumentNotValidException e, HttpServletRequestWrapper request){ 
+		System.out.println("deu ruim");
+
 		ValidationError err = new ValidationError(HttpStatus.BAD_REQUEST.value(), "Erro de validação.", System.currentTimeMillis());
 		
 		for(FieldError x: e.getBindingResult().getFieldErrors()) {
